@@ -75,7 +75,7 @@
   padding: 1rem;
 }
 .todo li {
-  flex: 1;
+  flex: 1 1;
 }
 .select {
   margin: 1rem;
@@ -135,7 +135,8 @@ select {
   background: rgb(11, 212, 162);
 }
 .todo_item {
-  padding: 0rem 10rem 0rem 0rem;
+  padding: 0rem 8rem 0rem 0rem;
+  text-align: left;
 }
 
 .fa-trash,
