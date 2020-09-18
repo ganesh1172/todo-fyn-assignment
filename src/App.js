@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
+// import {ReactComponent as Laptop} from './image/'
+import Todo_image from './image/todo_image.png';
 
 function App() {
   const [inputText, setInputText] = useState("");
@@ -46,9 +48,10 @@ function App() {
   }
   return (
     <div className="App">
-      <header>
-        <h1>Fyntune Todo Assignment</h1>
-      </header>
+      <div className="heading">
+        <img className="heading_img" src={Todo_image} alt="ToDo logo" />
+        <h1 className="heading_title">Fyntune Todo Assignment</h1>
+      </div>
       <Form inputText={inputText}
         todos={todos}
         setTodos={setTodos}

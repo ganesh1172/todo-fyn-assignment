@@ -1,12 +1,15 @@
-import React from 'react'
+import React from 'react';
+import '../App.css';
 
-const Form = ({ inputText, setInputText, todos, setTodos, status, setStatus }) => {
+const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
     const inputHandler = (e) => {
-        console.log(e.target.value);
         setInputText(e.target.value);
     }
     const submitHandler = (e) => {
         e.preventDefault();
+        if (inputText === '') {
+            return null;
+        }
         setTodos([
             ...todos,
             {
@@ -20,14 +23,17 @@ const Form = ({ inputText, setInputText, todos, setTodos, status, setStatus }) =
         setStatus(e.target.value);
     }
     return (
-        <form>
-            <input value={inputText} type="text" onChange={inputHandler} />
-            <button type="submit" onClick={submitHandler}>Add</button>{' '}
-            <select onChange={statusHandler} name="todos">
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="uncompleted">Uncompleted</option>
-            </select>
+        <form className="form">
+            <label className="form_label" htmlFor="todo">~ Today I need to ~</label>
+            <input className="form_input" value={inputText} type="text" onChange={inputHandler} pattern="[a-zA-Z ]*$" />
+            <button type="submit" onClick={submitHandler} className="todo_btn"><i className="fas fa-plus-square"></i></button>
+            <span className="select">
+                <select onChange={statusHandler} name="todos" className="filter_todo">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="uncompleted">Uncompleted</option>
+                </select>
+            </span>
         </form>
     )
 }

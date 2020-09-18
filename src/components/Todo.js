@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import '../App.css';
 
 const Todo = ({ text, todo, todos, setTodos }) => {
 
@@ -17,10 +18,12 @@ const Todo = ({ text, todo, todos, setTodos }) => {
         }))
     }
     return (
-        <div>
-            <li>{text}</li>
-            <button onClick={completeHandler}>check</button>
-            <button onClick={deleteHandler}>trash</button>
+        <div className="todo">
+            <li className={`todo_item ${todo.completed ? "completed" : ""}`}>{text}</li>
+            <button className="complete_btn" onClick={completeHandler}>
+                <i className="fas fa-check"></i>
+            </button>
+            <button className="trash_btn" onClick={deleteHandler}><i className="fas fa-trash"></i></button>
         </div>
     )
 }
